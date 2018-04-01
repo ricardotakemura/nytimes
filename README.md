@@ -17,7 +17,8 @@ na descrição projeto no GitHub:
 
 3) Descrever o que poderia ser feito se tivesse mais tempo para o desenvolvimento
 do projeto:
-- Melhorar testes automatizado (JUnit, Espresso, etc.)
+- Melhorar tratamento de erros;
+- Melhorar testes automatizado (JUnit, Espresso, etc.);
 - Melhorar documentação;
 - Code review;
 - Designer de classes (diagramação);
