@@ -11,6 +11,9 @@ public class SplashActivity extends AppCompatActivity implements Runnable {
 
     private final long WAIT_MILISECONDS = 2000;
 
+    /**
+     * @see AppCompatActivity#onCreate(Bundle)
+     */
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +22,9 @@ public class SplashActivity extends AppCompatActivity implements Runnable {
         thread.start();
     }
 
+    /**
+     * @see Runnable#run()
+     */
     @Override
     public void run() {
         Scheduler.sleep(WAIT_MILISECONDS);
@@ -30,7 +36,7 @@ public class SplashActivity extends AppCompatActivity implements Runnable {
         });
     }
 
-    public void startMainActivity() {
+    private void startMainActivity() {
         final Intent intent = new Intent(SplashActivity.this, MainActivity.class);
         startActivity(intent);
         SplashActivity.this.finish();

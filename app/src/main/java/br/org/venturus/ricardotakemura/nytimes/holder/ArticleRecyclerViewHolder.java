@@ -7,6 +7,9 @@ import android.widget.TextView;
 import br.org.venturus.ricardotakemura.nytimes.R;
 import br.org.venturus.ricardotakemura.nytimes.view.ResizableImageView;
 
+/**
+ * Classe que associa a visão aos dados
+ */
 public class ArticleRecyclerViewHolder extends RecyclerView.ViewHolder {
 
     private TextView titleTextView;
@@ -14,6 +17,10 @@ public class ArticleRecyclerViewHolder extends RecyclerView.ViewHolder {
     private TextView publishedDateTextView;
     private ResizableImageView pictureImageView;
 
+    /**
+     * Construtor da classe
+     * @param itemView View
+     */
     public ArticleRecyclerViewHolder(final View itemView) {
         super(itemView);
         titleTextView = itemView.findViewById(R.id.title_text_view);
@@ -22,18 +29,34 @@ public class ArticleRecyclerViewHolder extends RecyclerView.ViewHolder {
         pictureImageView = itemView.findViewById(R.id.picture_image_view);
     }
 
+    /**
+     * title text view
+     * @return TextView
+     */
     public TextView getTitleTextView() {
         return titleTextView;
     }
 
+    /**
+     * abstract text view
+     * @return TextView
+     */
     public TextView getAbstractTextView() {
         return abstractTextView;
     }
 
+    /**
+     * published date text view
+     * @return TextView
+     */
     public TextView getPublishedDateTextView() {
         return publishedDateTextView;
     }
 
+    /**
+     * picture image view
+     * @return ResizableImageView
+     */
     public ResizableImageView getPictureImageView() {
         return pictureImageView;
     }

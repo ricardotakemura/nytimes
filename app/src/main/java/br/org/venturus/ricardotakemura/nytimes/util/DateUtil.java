@@ -7,12 +7,21 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * Classe útil para manipulação de objetos do tipo Date
+ * @author ricardotakemura
+ */
 public final class DateUtil {
 
     private static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm:ss.SSSS";
     private static final String US_FORMAT = "MM/dd/yyyy";
     private static final String APPEND_HOUR = " 00:00:01.0000";
 
+    /**
+     * Transforma uma String no formato yyyy-MM-dd para um Date
+     * @param string String
+     * @return Date
+     */
     public static Date dateFromString(final String string) {
         try {
             final StringBuilder dateAsString = new StringBuilder(string);
@@ -29,6 +38,11 @@ public final class DateUtil {
         }
     }
 
+    /**
+     * Transforma um Date para uma String no formato MM/dd/yyyy
+     * @param date Date
+     * @return String
+     */
     public static String stringFromDate(final Date date) {
         final SimpleDateFormat dateFormat = new SimpleDateFormat(US_FORMAT, Locale.ROOT);
         return dateFormat.format(date);

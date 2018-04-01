@@ -17,6 +17,10 @@ import android.widget.TextView;
 import br.org.venturus.ricardotakemura.nytimes.R;
 import br.org.venturus.ricardotakemura.nytimes.util.DpiUtil;
 
+/**
+ * Classe para o estado de carregamento com uma animação
+ * @author ricardotakemura
+ */
 public class LuigiProgressBar extends FrameLayout {
 
     private final long ANIMATION_DURATION = 3000;
@@ -31,18 +35,40 @@ public class LuigiProgressBar extends FrameLayout {
     private AnimationDrawable animationDrawable;
     private ObjectAnimator animation;
 
+    /**
+     * Construtor da classe
+     * @param context Context
+     */
     public LuigiProgressBar(Context context) {
         super(context);
     }
 
+    /**
+     * Construtor da classe
+     * @param context Context
+     * @param attrs AttributeSet
+     */
     public LuigiProgressBar(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
+    /**
+     * Construtor da classe
+     * @param context Context
+     * @param attrs AttributeSet
+     * @param defStyleAttr styleAttr (int)
+     */
     public LuigiProgressBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
+    /**
+     * Construtor da classe
+     * @param context Context
+     * @param attrs AttributeSet
+     * @param defStyleAttr styleAttr (int)
+     * @param defStyleRes styleRes (int)
+     */
     public LuigiProgressBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
@@ -79,12 +105,18 @@ public class LuigiProgressBar extends FrameLayout {
         animation.start();
     }
 
+    /**
+     * Inicia a animação
+     */
     public void start() {
         createLoadingTextView();
         createLuigiImageViewWithAnimation();
         setVisibility(VISIBLE);
     }
 
+    /**
+     * Termina a animação
+     */
     public void stop() {
         if (animationDrawable != null) {
             animationDrawable.stop();

@@ -1,5 +1,6 @@
 package br.org.venturus.ricardotakemura.nytimes.activity;
 
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +25,10 @@ import br.org.venturus.ricardotakemura.nytimes.model.Article;
 import br.org.venturus.ricardotakemura.nytimes.util.Scheduler;
 import br.org.venturus.ricardotakemura.nytimes.view.LuigiProgressBar;
 
+/**
+ * Atividade (tela) principal
+ * @author ricardotakemura
+ */
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener,
         ArticleAsyncTask.ArticleAsyncTaskDelegate, View.OnScrollChangeListener {
 
@@ -33,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private Scheduler scheduler;
     private LinearLayoutManager linearLayoutManager;
 
+    /**
+     * @see AppCompatActivity#onCreate(Bundle, PersistableBundle)
+     */
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +83,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
 
+    /**
+     * @see AppCompatActivity#onCreateOptionsMenu(Menu)
+     */
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         final MenuInflater inflater = getMenuInflater();
@@ -84,11 +95,17 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return true;
     }
 
+    /**
+     * @see SearchView.OnQueryTextListener#onQueryTextSubmit(String)
+     */
     @Override
     public boolean onQueryTextSubmit(final String query) {
         return false;
     }
 
+    /**
+     * @see SearchView.OnQueryTextListener#onQueryTextChange(String)
+     */
     @Override
     public boolean onQueryTextChange(final String newText) {
         final String text = newText.trim();
@@ -113,6 +130,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return false;
     }
 
+    /**
+     * @see View.OnScrollChangeListener#onScrollChange(View, int, int, int, int)
+     */
     @Override
     public void onScrollChange(View view,
                                int scrollX,
@@ -128,6 +148,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
+    /**
+     * @see ArticleAsyncTask.ArticleAsyncTaskDelegate#finished(List, BusinessException)
+     */
     @Override
     public void finished(final List<Article> articles, final BusinessException e) {
         if (e == null) {

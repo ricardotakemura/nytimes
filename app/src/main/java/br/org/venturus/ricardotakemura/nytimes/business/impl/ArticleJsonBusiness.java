@@ -16,6 +16,9 @@ import br.org.venturus.ricardotakemura.nytimes.parse.ArticleMostViewJsonParser;
 import br.org.venturus.ricardotakemura.nytimes.parse.ArticleSearchJsonParser;
 import br.org.venturus.ricardotakemura.nytimes.provider.JsonDataProvider;
 
+/**
+ * Implementação da interface ArticleBusiness (json)
+ */
 public class ArticleJsonBusiness implements ArticleBusiness {
 
     private final String MOST_POPULAR_URL = "/mostpopular/v2/mostviewed/{0}/{1}.json";
@@ -31,6 +34,9 @@ public class ArticleJsonBusiness implements ArticleBusiness {
     private final String ARTICLE_VALUE = "document_type:article";
     private final String FIELDS_VALUE = "abstract,headline,pub_date,multimedia,document_type,snippet";
 
+    /**
+     * @see ArticleBusiness#getMostViews()
+     */
     @Override
     public List<Article> getMostViews() throws BusinessException {
         final String path = MessageFormat.format(MOST_POPULAR_URL, SECTION_VALUE, DAYS_VALUE);
@@ -45,6 +51,9 @@ public class ArticleJsonBusiness implements ArticleBusiness {
         }
     }
 
+    /**
+     * @see ArticleBusiness#search(String, int)
+     */
     @Override
     public List<Article> search(final String search, final int page) throws BusinessException {
         try {

@@ -4,14 +4,29 @@ import android.util.Log;
 
 import java.util.Date;
 
+/**
+ * Classe útil para gerenciamenot de threads
+ * @author ricardotakemura
+ */
 public final class Scheduler {
 
     private Thread thread;
 
+    /**
+     * Interface que delega a execução de um agendamento
+     * @author ricardotakemura
+     */
     public interface SchedulerDelegate {
+        /**
+         * Função que executa no agendamento
+         */
         void execute();
     }
 
+    /**
+     * A thread dorme por um determinado tempo (em milisegundos)
+     * @param sleeptime milisegundos(long)
+     */
     public static void sleep(final long sleeptime) {
         try {
             Thread.sleep(sleeptime);
@@ -20,6 +35,12 @@ public final class Scheduler {
         }
     }
 
+    /**
+     * Agenda uma execução depois de milisegundos apos a data passada
+     * @param date Date
+     * @param miliseconds milisegundos (long)
+     * @param delegate interface que delega a execução
+     */
     public void schedule(final Date date, final long miliseconds, final SchedulerDelegate delegate) {
         if (thread != null) {
             thread.interrupt();

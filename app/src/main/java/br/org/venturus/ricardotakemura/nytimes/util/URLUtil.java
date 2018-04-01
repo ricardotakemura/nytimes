@@ -15,10 +15,20 @@ import java.util.Map;
 
 import br.org.venturus.ricardotakemura.nytimes.exception.ServerException;
 
+/**
+ * Classe útil para manipulação de URL
+ * @author ricardotakemura
+ */
 public final class URLUtil {
 
     private static final String UTF_8 = "utf-8";
 
+    /**
+     * Lê dados no formato texto da internet via URL
+     * @param url URL
+     * @return dados no formato texto (String)
+     * @throws ServerException Exceção do servidor
+     */
     public static String readFully(final URL url) throws ServerException {
         try {
             final HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -53,6 +63,14 @@ public final class URLUtil {
         }
     }
 
+    /**
+     * Cria uma URL através do dominio, caminho e parametros
+     * @param domain dominio (String)
+     * @param path caminho (String)
+     * @param params parametros (Map)
+     * @return URL
+     * @throws MalformedURLException Exceção de URL
+     */
     public static URL createURL(final String domain, final String path, final Map<String, String> params) throws MalformedURLException {
         try {
             StringBuilder builder = new StringBuilder(domain);

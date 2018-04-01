@@ -15,11 +15,28 @@ import br.org.venturus.ricardotakemura.nytimes.exception.JsonException;
 import br.org.venturus.ricardotakemura.nytimes.model.Picture;
 import br.org.venturus.ricardotakemura.nytimes.util.DateUtil;
 
+/**
+ * Classe que transforma JSON em objetos Java
+ * @param <T> Tipo da classe
+ * @author ricardotakemura
+ */
 public abstract class JsonParser<T> {
 
+    /**
+     * Status OK
+     */
     protected final String OK = "OK";
+    /**
+     * Nome do campo status
+     */
     protected final String STATUS_FIELD = "status";
 
+    /**
+     * Transforma um JSON em uma lista de objetos
+     * @param source JSON (String)
+     * @return List
+     * @throws JsonException Exceção de JSON
+     */
     public List<T> transformAsList(final String source) throws JsonException {
         try {
             final JSONObject root = new JSONObject(source);
@@ -33,10 +50,31 @@ public abstract class JsonParser<T> {
         }
     }
 
+    /**
+     * Obtem os dados de JSONObject e constroi uma lista de objetos
+     * @param object JSONObject
+     * @return List
+     * @throws JsonException Exceção de JSON
+     */
     protected abstract List<T> parseAsList(final JSONObject object) throws JsonException;
 
+    /**
+     * Obtem os dados de JSONObject e constroi um objeto
+     * @param object JSONObject
+     * @return Object
+     * @throws JsonException Exceção de JSON
+     */
     protected abstract T parse(final JSONObject object) throws JsonException;
 
+    /**
+     * Obtem e transforma um dado do JSONObject
+     * @param object JSONObject
+     * @param key chave do json (String)
+     * @param clazz Classe que o dado irá se transformar
+     * @param <X> Tipo do objeto
+     * @return Object
+     * @throws JsonException Exceção de JSON
+     */
     @Nullable
     protected <X> X getValue(final JSONObject object, final String key, final Class<X> clazz) throws JsonException {
         try {
@@ -63,6 +101,13 @@ public abstract class JsonParser<T> {
         }
     }
 
+    /**
+     * Obtem um JSONObject de um JSONArray
+     * @param array JSONArray
+     * @param index indice no array
+     * @return JSONObject
+     * @throws JsonException Exceção de JSON
+     */
     @Nullable
     protected JSONObject getValue(final JSONArray array, final int index) throws JsonException {
         try {

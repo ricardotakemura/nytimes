@@ -9,6 +9,10 @@ import java.util.List;
 import br.org.venturus.ricardotakemura.nytimes.exception.JsonException;
 import br.org.venturus.ricardotakemura.nytimes.model.Picture;
 
+/**
+ * JsonParser para Picture (json do "buscas")
+ * @author ricardotakemura
+ */
 public class PictureSearchJsonParser extends JsonParser<Picture> {
 
     private final String TYPE_KEY = "type";
@@ -20,11 +24,17 @@ public class PictureSearchJsonParser extends JsonParser<Picture> {
     private final String HEIGHT_KEY = "height";
     private final String WIDTH_KEY = "width";
 
+    /**
+     * @see JsonParser#parseAsList(JSONObject)
+     */
     @Override
     protected List<Picture> parseAsList(JSONObject object) throws JsonException {
         return null;
     }
 
+    /**
+     * @see JsonParser#parse(JSONObject)
+     */
     @Override
     protected Picture parse(final JSONObject jsonObject) throws JsonException {
         if (IMAGE_VALUE.equals(getValue(jsonObject, TYPE_KEY, String.class))) {

@@ -11,6 +11,10 @@ import br.org.venturus.ricardotakemura.nytimes.exception.JsonException;
 import br.org.venturus.ricardotakemura.nytimes.model.Article;
 import br.org.venturus.ricardotakemura.nytimes.model.Picture;
 
+/**
+ * JsonParser para Article (json do "buscas")
+ * @author ricardotakemura
+ */
 public class ArticleSearchJsonParser extends JsonParser<Article> {
 
     private final String RESPONSE_KEY = "response";
@@ -22,6 +26,9 @@ public class ArticleSearchJsonParser extends JsonParser<Article> {
     private final String SNIPPET_KEY = "snippet";
     private final String MULTIMEDIA_KEY = "multimedia";
 
+    /**
+     * @see JsonParser#parseAsList(JSONObject)
+     */
     @Override
     protected List<Article> parseAsList(final JSONObject object) throws JsonException {
         final List<Article> ret = new ArrayList<>();
@@ -38,6 +45,9 @@ public class ArticleSearchJsonParser extends JsonParser<Article> {
         return ret;
     }
 
+    /**
+     * @see JsonParser#parse(JSONObject)
+     */
     @Override
     protected Article parse(final JSONObject object) throws JsonException {
         final Article article = new Article();
