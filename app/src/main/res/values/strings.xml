@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Ny Times</string>
+    <string name="search">Search</string>
+    <string name="connection_error">The connection is unstable.</string>
+    <string name="invalid_data_error">Invalid parse data.</string>
+    <string name="generic_error">Generic error.</string>
+    <string name="empty_title">Uh oh...</string>
+    <string name="empty_message">No articles found.</string>
+</resources>
