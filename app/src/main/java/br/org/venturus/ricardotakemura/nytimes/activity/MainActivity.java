@@ -92,7 +92,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public boolean onQueryTextChange(final String newText) {
         final String text = newText.trim();
-        if (!state.getSearchText().equalsIgnoreCase(text)) {
+        if (text.length() >= MainActivityState.MINIMUM_LETTERS &&
+                !state.getSearchText().equalsIgnoreCase(text)) {
             state.setSearchText(text);
             scheduler.schedule(new Date(), MainActivityState.DEFAULT_TYPING_MILISECONDS, new Scheduler.SchedulerDelegate() {
                 @Override

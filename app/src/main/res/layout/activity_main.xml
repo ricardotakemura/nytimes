@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorBackground"
     tools:context=".activity.MainActivity">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/articles_recycler_view"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
     <br.org.venturus.ricardotakemura.nytimes.view.LuigiProgressBar
         android:id="@+id/articles_progressbar"
         android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
         android:layout_width="match_parent"
-        android:layout_height="72dp"/>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/articles_recycler_view"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
-
-</LinearLayout>
+        android:layout_height="48dp"/>
+</RelativeLayout>
