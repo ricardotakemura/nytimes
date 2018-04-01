@@ -21,3 +21,5 @@ do projeto:
 - Melhorar documentação;
 - Code review;
 - Designer de classes (diagramação);
+- Segurança (criptografia);
+- Verificar performance (disponibilidade do servidor, testes de stress, etc.);
